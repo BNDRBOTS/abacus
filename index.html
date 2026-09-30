@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abacus Medical Solutions | Premium Medical Billing</title>
+    <meta name="description" content="Abacus Medical Solutions provides focused medical billing support with the responsiveness, accuracy, and follow-through practices need to keep revenue operations moving.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (v4) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-ivory: #f9f8f6;
+            --color-charcoal: #121212;
+            --color-graphite: #4a4a4a;
+            --color-crimson: #9e1b1d;
+            --color-champagne: #c5b39b;
+            --font-sans: 'Manrope', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+        
+        body {
+            background-color: var(--color-ivory);
+            color: var(--color-charcoal);
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        
+        .reveal-text {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        /* Subtle logo bead entrance animation */
+        @keyframes beadSettle {
+            0% { transform: translateX(-8px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        .logo-bead {
+            animation: beadSettle 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+        }
+        .logo-bead:nth-child(2) { animation-delay: 0.1s; }
+        .logo-bead:nth-child(3) { animation-delay: 0.15s; }
+        .logo-bead:nth-child(4) { animation-delay: 0.3s; }
+        .logo-bead:nth-child(5) { animation-delay: 0.35s; }
+        .logo-bead:nth-child(6) { animation-delay: 0.4s; }
+        .logo-bead:nth-child(7) { animation-delay: 0.55s; }
+        .logo-bead:nth-child(8) { animation-delay: 0.6s; }
+        .logo-bead:nth-child(9) { animation-delay: 0.65s; }
+
+        /* Focus styles for accessibility */
+        *:focus-visible {
+            outline: 2px solid var(--color-crimson);
+            outline-offset: 4px;
+        }
+
+        /* Ensure smooth rendering of SVG */
+        svg {
+            display: block;
+        }
+    </style>
+</head>
+<body class="selection:bg-crimson selection:text-ivory">
+
+    <!-- Global Scroll Tracker (Desktop Only) -->
+    <div class="fixed inset-0 w-full h-full pointer-events-none z-50 hidden md:block">
+        <svg id="scroll-svg" class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <!-- A very subtle sweeping vertical curve -->
+            <path id="scroll-path" d="M 8 0 C 12 30, 4 70, 8 100" fill="none" stroke="rgba(158,27,29,0.08)" stroke-width="0.1"/>
+        </svg>
+        <div id="scroll-beads" class="absolute -ml-[6px] -mt-[6px] flex flex-col gap-1 w-3 transition-opacity duration-1000 opacity-0 mix-blend-normal">
+            <div class="w-3 h-3 rounded-full bg-gradient-to-br from-[#f25c61] via-[#a31621] to-[#4a0505] shadow-[0_2px_6px_rgba(158,27,29,0.4)]"></div>
+            <div class="w-3 h-3 rounded-full bg-gradient-to-br from-[#f25c61] via-[#a31621] to-[#4a0505] shadow-[0_2px_6px_rgba(158,27,29,0.4)]"></div>
+            <div class="w-3 h-3 rounded-full bg-gradient-to-br from-[#f25c61] via-[#a31621] to-[#4a0505] shadow-[0_2px_6px_rgba(158,27,29,0.4)]"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-40 bg-ivory/90 backdrop-blur-md border-b border-graphite/10 transition-transform duration-500">
+        <div class="max-w-[90rem] mx-auto px-6 md:px-16 h-20 md:h-24 flex items-center justify-between">
+            <a href="#" class="h-10 md:h-12 w-auto relative z-10 block" aria-label="Abacus Medical Solutions Home">
+                <svg viewBox="0 0 360 100" class="h-full w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="beadGradNav" cx="30%" cy="30%" r="70%">
+                            <stop offset="0%" stop-color="#f25c61" />
+                            <stop offset="50%" stop-color="#a31621" />
+                            <stop offset="100%" stop-color="#4a0505" />
+                        </radialGradient>
+                        <filter id="beadShadowNav" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="1" dy="2" stdDeviation="1.5" flood-color="#000" flood-opacity="0.2"/>
+                        </filter>
+                    </defs>
+                    
+                    <!-- Arc -->
+                    <path d="M 15 50 Q 180 -15 345 50" stroke="#7a7a7a" stroke-width="1.5"/>
+                    
+                    <!-- Left 2 beads -->
+                    <circle cx="60" cy="33" r="5.5" fill="url(#beadGradNav)" filter="url(#beadShadowNav)" class="logo-bead"/>
+                    <circle cx="75" cy="29" r="5.5" fill="url(#beadGradNav)" filter="url(#beadShadowNav)" class="logo-bead"/>
+
+                    <!-- Middle 3 beads -->
+                    <circle cx="165" cy="20" r="5.5" fill="url(#beadGradNav)" filter="url(#beadShadowNav)" class="logo-bead"/>
+                    <circle cx="180" cy="18" r="5.5" fill="url(#beadGradNav)" filter="url(#beadShadowNav)" class="logo-bead"/>
+                    <circle cx="195" cy="20" r="5.5" fill="url(#beadGradNav)" filter="url(#beadShadowNav)" class="logo-bead"/>
+
+                    <!-- Right 3 beads -->
+                    <circle cx="270" cy="27" r="5.5" fill="url(#beadGradNav)" filter="url(#beadShadowNav)" class="logo-bead"/>
+                    <circle cx="285" cy="31" r="5.5" fill="url(#beadGradNav)" filter="url(#beadShadowNav)" class="logo-bead"/>
+                    <circle cx="300" cy="34" r="5.5" fill="url(#beadGradNav)" filter="url(#beadShadowNav)" class="logo-bead"/>
+
+                    <text x="25" y="80" font-family="'Manrope', sans-serif" font-weight="800" font-size="28" fill="#121212" letter-spacing="-0.03em">ABACUS MEDICAL</text>
+                    <text x="290" y="98" font-family="'Manrope', sans-serif" font-weight="300" font-size="16" fill="#121212" text-anchor="end" letter-spacing="0.04em">SOLUTIONS</text>
+                </svg>
+            </a>
+            
+            <div class="flex items-center gap-6 md:gap-8">
+                <a href="tel:6027700269" class="hidden md:flex text-sm font-semibold text-charcoal hover:text-crimson transition-colors tracking-wide items-center gap-2">
+                    602-770-0269
+                </a>
+                <a href="#contact" class="px-5 py-2.5 md:px-6 md:py-3 bg-charcoal text-ivory text-xs md:text-sm font-semibold tracking-wide hover:bg-crimson transition-colors duration-300">
+                    Talk With Amy
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] md:min-h-screen flex items-center pt-32 pb-20 px-6 md:px-16 overflow-hidden">
+        <!-- Abstract Architectural Background -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0 flex items-center justify-end md:justify-center opacity-30 md:opacity-40">
+            <svg viewBox="0 0 1200 800" class="w-[200vw] md:w-[120vw] h-auto max-w-none ml-20 md:ml-0" fill="none">
+                <path d="M -200 600 Q 600 -200 1400 600" stroke="#4a4a4a" stroke-width="1" />
+                <circle cx="450" cy="150" r="12" fill="url(#beadGradNav)" class="hero-bg-bead shadow-lg" filter="drop-shadow(0px 4px 10px rgba(0,0,0,0.1))"/>
+                <circle cx="490" cy="120" r="12" fill="url(#beadGradNav)" class="hero-bg-bead shadow-lg" filter="drop-shadow(0px 4px 10px rgba(0,0,0,0.1))"/>
+                <circle cx="850" cy="180" r="12" fill="url(#beadGradNav)" class="hero-bg-bead shadow-lg" filter="drop-shadow(0px 4px 10px rgba(0,0,0,0.1))"/>
+            </svg>
+        </div>
+
+        <div class="max-w-[90rem] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 relative z-10 pl-0 md:pl-12 lg:pl-24">
+            <div class="md:col-span-10 lg:col-span-9 flex flex-col justify-center">
+                <h1 class="text-[3.25rem] md:text-7xl lg:text-[6.5rem] font-extrabold text-charcoal tracking-tight leading-[1.02] mb-10 hero-title">
+                    Billing that keeps the <span class="text-graphite font-serif italic font-normal block md:inline">business of care</span> moving.
+                </h1>
+                
+                <div class="w-full md:w-3/4 lg:w-2/3 ml-auto hero-content pr-0 md:pr-12 border-l border-crimson/20 pl-6 md:pl-10">
+                    <p class="text-lg md:text-xl lg:text-2xl text-graphite mb-10 leading-relaxed font-light">
+                        Abacus Medical Solutions provides focused medical billing support with the responsiveness, accuracy, and follow-through practices need to keep revenue operations moving.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-6 md:gap-8">
+                        <a href="#contact" class="group relative px-8 py-4 bg-crimson text-ivory text-sm font-semibold tracking-wide overflow-hidden transition-all duration-500 hover:shadow-[0_0_20px_rgba(158,27,29,0.3)]">
+                            <span class="relative z-10 flex items-center gap-3">
+                                Talk With Amy 
+                                <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </span>
+                            <div class="absolute inset-0 bg-[#7a1214] transform scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100 z-0"></div>
+                        </a>
+                        <a href="tel:6027700269" class="text-sm font-semibold text-charcoal hover:text-crimson transition-colors tracking-wide flex items-center gap-2 group">
+                            <span class="border-b border-charcoal/30 group-hover:border-crimson transition-colors pb-0.5">Call 602-770-0269</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credibility Section -->
+    <section class="py-24 md:py-40 px-6 md:px-16 bg-white relative z-10">
+        <div class="max-w-[90rem] mx-auto w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-16 pl-0 md:pl-12 lg:pl-24">
+            <div class="lg:w-3/5 reveal-up">
+                <h2 class="text-[2rem] md:text-[3.5rem] font-bold text-charcoal leading-[1.1] tracking-tight">
+                    Less friction between care delivered and revenue collected.
+                </h2>
+            </div>
+            <div class="lg:w-1/3 reveal-up bg-ivory p-8 md:p-12 relative border border-graphite/5">
+                <div class="absolute -top-3 -left-3 w-6 h-6 rounded-full bg-crimson shadow-[0_2px_10px_rgba(158,27,29,0.3)]"></div>
+                <p class="text-graphite text-lg md:text-xl leading-relaxed font-light">
+                    We believe billing deserves the same attention to detail as the work behind it. Clear communication. Persistent follow-through. Fewer loose ends.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-24 md:py-40 px-6 md:px-16 bg-ivory relative z-10 border-t border-graphite/5">
+        <div class="max-w-[90rem] mx-auto w-full pl-0 md:pl-12 lg:pl-24">
+            <div class="text-xs font-bold tracking-[0.2em] text-crimson uppercase mb-16 md:mb-24 flex items-center gap-4 reveal-up">
+                <span class="w-12 h-px bg-crimson"></span> Services
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 md:gap-y-24 gap-x-12 md:gap-x-20">
+                <!-- Service 1 -->
+                <div class="flex flex-col border-t border-graphite/20 pt-8 group reveal-up">
+                    <h3 class="text-2xl font-bold text-charcoal mb-4 group-hover:text-crimson transition-colors duration-300">Medical Billing</h3>
+                    <p class="text-graphite font-light leading-relaxed text-lg">Comprehensive billing management that ensures claims are coded and submitted accurately from the start.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="flex flex-col border-t border-graphite/20 pt-8 group reveal-up">
+                    <h3 class="text-2xl font-bold text-charcoal mb-4 group-hover:text-crimson transition-colors duration-300">Claims Follow-Up</h3>
+                    <p class="text-graphite font-light leading-relaxed text-lg">Relentless pursuit of unpaid and denied claims. We actively manage the details so revenue doesn't slip through the cracks.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="flex flex-col border-t border-graphite/20 pt-8 group reveal-up">
+                    <h3 class="text-2xl font-bold text-charcoal mb-4 group-hover:text-crimson transition-colors duration-300">Payment & Posting</h3>
+                    <p class="text-graphite font-light leading-relaxed text-lg">Precise allocation and reconciliation of payments to maintain an accurate and transparent financial picture.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="flex flex-col border-t border-graphite/20 pt-8 group reveal-up">
+                    <h3 class="text-2xl font-bold text-charcoal mb-4 group-hover:text-crimson transition-colors duration-300">Revenue Cycle Support</h3>
+                    <p class="text-graphite font-light leading-relaxed text-lg">Holistic oversight of the revenue lifecycle to identify bottlenecks, reduce days in A/R, and improve cash flow.</p>
+                </div>
+                <!-- Service 5 -->
+                <div class="flex flex-col border-t border-graphite/20 pt-8 group reveal-up">
+                    <h3 class="text-2xl font-bold text-charcoal mb-4 group-hover:text-crimson transition-colors duration-300">Practice Coordination</h3>
+                    <p class="text-graphite font-light leading-relaxed text-lg">Seamless integration with your practice's daily operations for a frictionless administrative workflow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-32 md:py-48 px-6 md:px-16 bg-charcoal text-ivory relative z-10 overflow-hidden">
+        <!-- Decorative abstract arc in the background -->
+        <div class="absolute inset-0 pointer-events-none opacity-[0.03] flex items-center justify-center">
+            <svg viewBox="0 0 1000 1000" class="w-full h-[150%] max-w-none absolute">
+                <circle cx="500" cy="500" r="400" fill="none" stroke="#f9f8f6" stroke-width="2" />
+                <circle cx="500" cy="500" r="600" fill="none" stroke="#f9f8f6" stroke-width="1" />
+            </svg>
+        </div>
+        
+        <div class="max-w-[90rem] mx-auto w-full relative z-10 pl-0 md:pl-12 lg:pl-24">
+            <div class="text-xs font-bold tracking-[0.2em] text-champagne uppercase mb-24 md:mb-32 flex items-center gap-4 reveal-up">
+                <span class="w-12 h-px bg-champagne"></span> The Rhythm
+            </div>
+            
+            <div class="relative">
+                <!-- Vertical structural line for desktop -->
+                <div class="hidden md:block absolute left-[4.5rem] top-12 bottom-12 w-px bg-graphite/30"></div>
+
+                <div class="space-y-24 md:space-y-40">
+                    <!-- Step 01 -->
+                    <div class="process-step flex flex-col md:flex-row md:items-start gap-8 md:gap-16 lg:w-4/5">
+                        <div class="text-[5rem] md:text-[7rem] font-serif text-champagne/20 italic leading-none md:w-48 shrink-0 relative">
+                            01
+                            <div class="hidden md:block absolute right-[-2.25rem] top-1/2 -mt-2 w-4 h-4 rounded-full bg-crimson shadow-[0_0_15px_rgba(158,27,29,0.8)] z-10"></div>
+                        </div>
+                        <div class="pt-2 md:pt-6">
+                            <h3 class="text-2xl md:text-4xl font-bold mb-6 text-ivory tracking-tight">Understand the workflow.</h3>
+                            <p class="text-champagne/80 text-lg md:text-xl font-light leading-relaxed max-w-2xl">We integrate seamlessly into your current operations, learning the specific nuances and requirements of your practice before taking action.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 02 -->
+                    <div class="process-step flex flex-col md:flex-row md:items-start gap-8 md:gap-16 lg:w-4/5 lg:ml-auto">
+                        <div class="text-[5rem] md:text-[7rem] font-serif text-champagne/20 italic leading-none md:w-48 shrink-0 relative md:order-2 md:text-right">
+                            02
+                            <div class="hidden md:block absolute left-[-4.25rem] top-1/2 -mt-2 w-4 h-4 rounded-full bg-crimson shadow-[0_0_15px_rgba(158,27,29,0.8)] z-10"></div>
+                        </div>
+                        <div class="pt-2 md:pt-6 md:order-1 md:text-right">
+                            <h3 class="text-2xl md:text-4xl font-bold mb-6 text-ivory tracking-tight">Establish the billing rhythm.</h3>
+                            <p class="text-champagne/80 text-lg md:text-xl font-light leading-relaxed max-w-2xl ml-auto">Setting a consistent, predictable schedule for claims submission and processing. We remove the chaos and replace it with systematic precision.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 03 -->
+                    <div class="process-step flex flex-col md:flex-row md:items-start gap-8 md:gap-16 lg:w-4/5">
+                        <div class="text-[5rem] md:text-[7rem] font-serif text-champagne/20 italic leading-none md:w-48 shrink-0 relative">
+                            03
+                            <div class="hidden md:block absolute right-[-2.25rem] top-1/2 -mt-2 w-4 h-4 rounded-full bg-crimson shadow-[0_0_15px_rgba(158,27,29,0.8)] z-10"></div>
+                        </div>
+                        <div class="pt-2 md:pt-6">
+                            <h3 class="text-2xl md:text-4xl font-bold mb-6 text-ivory tracking-tight">Keep claims moving.</h3>
+                            <p class="text-champagne/80 text-lg md:text-xl font-light leading-relaxed max-w-2xl">Proactive tracking and immediate action on rejections to ensure continuous momentum. A claim should never stall because of inattention.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 04 -->
+                    <div class="process-step flex flex-col md:flex-row md:items-start gap-8 md:gap-16 lg:w-4/5 lg:ml-auto">
+                        <div class="text-[5rem] md:text-[7rem] font-serif text-champagne/20 italic leading-none md:w-48 shrink-0 relative md:order-2 md:text-right">
+                            04
+                            <div class="hidden md:block absolute left-[-4.25rem] top-1/2 -mt-2 w-4 h-4 rounded-full bg-crimson shadow-[0_0_15px_rgba(158,27,29,0.8)] z-10"></div>
+                        </div>
+                        <div class="pt-2 md:pt-6 md:order-1 md:text-right">
+                            <h3 class="text-2xl md:text-4xl font-bold mb-6 text-ivory tracking-tight">Stay responsive.</h3>
+                            <p class="text-champagne/80 text-lg md:text-xl font-light leading-relaxed max-w-2xl ml-auto">Direct communication lines, immediate answers, and unwavering follow-through. When you have a question, you speak with leadership.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Value Section -->
+    <section class="py-24 md:py-32 px-6 md:px-16 bg-white relative z-10 text-center flex items-center justify-center">
+        <div class="max-w-4xl mx-auto reveal-up">
+            <h2 class="text-3xl md:text-5xl font-serif italic text-charcoal leading-tight">
+                "Billing deserves the same attention to detail as the work behind it."
+            </h2>
+        </div>
+    </section>
+
+    <!-- Contact Conversion Section -->
+    <section id="contact" class="py-24 md:py-40 px-6 md:px-16 bg-ivory relative z-10">
+        <div class="max-w-[90rem] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center pl-0 md:pl-12 lg:pl-24">
+            
+            <div class="reveal-up">
+                <div class="w-16 h-px bg-crimson mb-12"></div>
+                <h2 class="text-[2.5rem] md:text-[4rem] font-bold text-charcoal mb-8 tracking-tight leading-[1.05]">
+                    Ready to keep your revenue moving?
+                </h2>
+                <p class="text-xl md:text-2xl text-graphite font-light mb-12 leading-relaxed">
+                    Speak directly with leadership. No call centers, just focused expertise ready to understand your practice.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a href="mailto:amy@abacusmedbilling.com" class="group relative px-8 py-4 bg-charcoal text-ivory text-sm font-semibold tracking-wide overflow-hidden transition-all duration-500 hover:bg-black text-center w-full sm:w-auto">
+                        <span class="relative z-10 flex items-center justify-center gap-2">Send an Email</span>
+                    </a>
+                    <a href="tel:6027700269" class="px-8 py-4 border border-charcoal/20 text-charcoal text-sm font-semibold tracking-wide hover:border-crimson hover:text-crimson transition-colors text-center w-full sm:w-auto">
+                        Talk With Amy
+                    </a>
+                </div>
+            </div>
+            
+            <div class="bg-white p-10 md:p-16 relative shadow-2xl shadow-charcoal/5 reveal-up border border-graphite/10">
+                <!-- Decorative Architectural Accent -->
+                <div class="absolute top-0 right-10 md:right-16 w-1.5 h-16 md:h-24 bg-crimson"></div>
+                <div class="absolute top-[3.5rem] md:top-[5.5rem] right-[34px] md:right-[58px] w-4 h-4 rounded-full bg-gradient-to-br from-[#f25c61] via-[#a31621] to-[#4a0505] shadow-[0_4px_10px_rgba(158,27,29,0.5)]"></div>
+
+                <h3 class="text-3xl md:text-4xl font-bold text-charcoal mb-2">Amy Rio</h3>
+                <p class="text-graphite font-serif italic mb-12 text-lg">Principal, Abacus Medical Solutions</p>
+                
+                <ul class="space-y-8">
+                    <li>
+                        <a href="tel:6027700269" class="text-lg md:text-xl text-charcoal hover:text-crimson transition-colors flex flex-col md:flex-row md:items-center gap-2 md:gap-6 group">
+                            <span class="text-[0.65rem] font-bold tracking-[0.2em] text-graphite uppercase w-20 group-hover:text-crimson transition-colors">Phone</span> 
+                            602-770-0269
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:amy@abacusmedbilling.com" class="text-lg md:text-xl text-charcoal hover:text-crimson transition-colors flex flex-col md:flex-row md:items-center gap-2 md:gap-6 group">
+                            <span class="text-[0.65rem] font-bold tracking-[0.2em] text-graphite uppercase w-20 group-hover:text-crimson transition-colors">Email</span> 
+                            amy@abacusmedbilling.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.abacusmedbilling.com" class="text-lg md:text-xl text-charcoal hover:text-crimson transition-colors flex flex-col md:flex-row md:items-center gap-2 md:gap-6 group">
+                            <span class="text-[0.65rem] font-bold tracking-[0.2em] text-graphite uppercase w-20 group-hover:text-crimson transition-colors">Web</span> 
+                            www.abacusmedbilling.com
+                        </a>
+                    </li>
+                    <li class="flex flex-col md:flex-row md:items-start gap-2 md:gap-6 pt-2">
+                        <span class="text-[0.65rem] font-bold tracking-[0.2em] text-graphite uppercase w-20 mt-1.5">Mail</span> 
+                        <span class="text-lg md:text-xl text-charcoal leading-snug">P.O. Box 26206<br>Scottsdale, AZ 85255</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 md:py-16 px-6 md:px-16 bg-charcoal text-graphite text-sm flex flex-col md:flex-row justify-between items-center z-10 relative border-t border-white/5">
+        <div class="mb-8 md:mb-0 text-center md:text-left font-light tracking-wide pl-0 md:pl-12 lg:pl-24">
+            &copy; 2026 Abacus Medical Solutions. All rights reserved.
+        </div>
+        
+        <!-- Small Monogram / Logo Mark -->
+        <a href="#" class="w-32 opacity-40 hover:opacity-100 transition-opacity duration-500" aria-label="Back to top">
+            <svg viewBox="0 0 360 100" class="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Arc -->
+                <path d="M 15 50 Q 180 -15 345 50" stroke="#f9f8f6" stroke-width="1.5" stroke-opacity="0.5"/>
+                <!-- Beads -->
+                <circle cx="165" cy="20" r="5.5" fill="#9e1b1d"/>
+                <circle cx="180" cy="18" r="5.5" fill="#9e1b1d"/>
+                <circle cx="195" cy="20" r="5.5" fill="#9e1b1d"/>
+            </svg>
+        </a>
+    </footer>
+
+    <!-- GSAP for Interactions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Initial Load Animations
+            const tl = gsap.timeline();
+            
+            tl.from(".hero-title", { 
+                y: 80, 
+                opacity: 0, 
+                duration: 1.2, 
+                ease: "power4.out", 
+                delay: 0.1 
+            })
+            .from(".hero-content", { 
+                y: 40, 
+                opacity: 0, 
+                duration: 1, 
+                ease: "power3.out" 
+            }, "-=0.8")
+            .from(".hero-bg-bead", { 
+                x: -60, 
+                opacity: 0, 
+                stagger: 0.15, 
+                duration: 1.5, 
+                ease: "power3.out" 
+            }, "-=1");
+
+            // Scroll Reveal Elements
+            gsap.utils.toArray('.reveal-up').forEach(elem => {
+                gsap.from(elem, {
+                    scrollTrigger: { 
+                        trigger: elem, 
+                        start: "top 85%" 
+                    },
+                    y: 50, 
+                    opacity: 0, 
+                    duration: 1.2, 
+                    ease: "power3.out"
+                });
+            });
+
+            // Process Steps Stagger Reveal
+            gsap.utils.toArray('.process-step').forEach((step, i) => {
+                gsap.from(step, {
+                    scrollTrigger: { 
+                        trigger: step, 
+                        start: "top 85%" 
+                    },
+                    y: 60, 
+                    opacity: 0, 
+                    duration: 1.2, 
+                    ease: "power2.out"
+                });
+            });
+
+            // Global Scroll Tracking Bead System
+            const path = document.getElementById('scroll-path');
+            const beads = document.getElementById('scroll-beads');
+            
+            if (path && beads && window.innerWidth >= 768) {
+                const pathLength = path.getTotalLength();
+                
+                // Fade in tracker slightly after load
+                setTimeout(() => {
+                    beads.classList.remove('opacity-0');
+                }, 2000);
+
+                ScrollTrigger.create({
+                    trigger: document.body,
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: 0.8, // buttery smooth scrub
+                    onUpdate: (self) => {
+                        // Keep within bounds to prevent errors at edges
+                        const progress = Math.max(0, Math.min(1, self.progress));
+                        const point = path.getPointAtLength(progress * pathLength);
+                        
+                        gsap.set(beads, { 
+                            left: point.x + '%', 
+                            top: point.y + '%' 
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
